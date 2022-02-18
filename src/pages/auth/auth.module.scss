@@ -1,0 +1,9 @@
+/* The component style is inserted here. */
+
+.license{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  a{
+    max-width: 380px;
+  }
+}
