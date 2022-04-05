@@ -1,45 +1,42 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
-
 import { Button } from '.';
-import { ButtonProps, ButtonSize } from './button.props';
-import { ReactComponent as GoogleIcon } from './icons/google.svg';
+import { icons } from '../icon/ui';
+import { ButtonProps } from './button.props';
 
 export default {
 	title: 'UI/Button',
 	component: Button,
+	parameters: {
+		themes: {
+			Button: 'dark',
+		},
+	},
 } as Meta;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
-export const Secondary = Template.bind({});
-
-Secondary.args = {
-	color: '--button-secondary-bg',
-	size: ButtonSize.MEDIUM,
-	children: 'Button',
-};
 export const Primary = Template.bind({});
 
 Primary.args = {
-	color: '--button-primary-bg',
-	size: ButtonSize.MEDIUM,
-	children: 'Button',
+	icon: icons.home,
+	Type: 'primary',
+	size: 'medium',
+	children: 'кнопка',
 };
-export const Deactive = Template.bind({});
+export const Secondary = Template.bind({});
 
-Deactive.args = {
-	color: '--button-primary-bg',
-	size: ButtonSize.MEDIUM,
-	children: 'Button',
-	deactive: true,
+Secondary.args = {
+	icon: icons.home,
+	Type: 'secondary',
+	size: 'medium',
+	children: 'кнопка',
 };
-export const Icon = Template.bind({});
 
-Icon.args = {
-	icon: <GoogleIcon />,
-	color: '--button-secondary-bg',
-	size: ButtonSize.MEDIUM,
-	positionIcon: 'start',
-	children: 'Button',
+export const deActive = Template.bind({});
+
+deActive.args = {
+	Type: 'secondary',
+	size: 'medium',
+	children: 'кнопка',
+	deActive: true,
 };

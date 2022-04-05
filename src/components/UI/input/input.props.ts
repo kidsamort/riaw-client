@@ -1,19 +1,9 @@
-import { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-export enum InputIcon {
-	MAIL = 'mail',
-	PERSON = 'person',
-	ARROW = 'arrow',
-	PASS = 'pass',
-}
-export enum InputStatusIcon {
-	CHECK = 'check',
-	WARNING = 'warning',
-	NONE = 'none',
-}
+export enum InputType {}
 
-export interface InputProps extends ComponentPropsWithoutRef<'input'> {
-	iconStatus?: InputStatusIcon;
-	icon?: InputIcon;
-	active?: boolean;
+export interface InputProps extends ComponentPropsWithoutRef<'div'> {
+	startIcon?: string[];
+	endIcon?: string[];
+	children?: ReactNode;
 }

@@ -1,177 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap');
-
-* {
-	font-family: Inter, sans-serif;
-}
-
 :root {
-	/* #region Color app */
-	--neutral-00: #fff;
-	--neutral-01: #fcfcfc;
-	--neutral-02: #f4f4f4;
-	--neutral-03: #efefef;
-	--neutral-04: #6f767e;
-	--neutral-05: #33383f;
-	--neutral-06: #272b30;
-	--neutral-07: #1a1d1f;
-	--neutral-08: #111315;
-	--neutral-shades1-04-75: #9a9fa5;
-	--neutral-shades2-dark-04-50: #6f767e;
-	--neutral-shades3-dark-04-40: rgba(111 118 126 / 40%);
-	--neutral-shades4-dark-08_over-07-50: rgba(17 19 21/50%);
-	--neutral-shades5: var(--primary-01);
-	--primary-01: #2a85ff;
-	--primary-02: #83bf6e;
-	--primary-03: #ff6a55;
-	--primary-04: #8e59ff;
-	--secondary-01: #ffbc99;
-	--secondary-02: #cabdff;
-	--secondary-03: #b1e5fc;
-	--secondary-04: #b5e4ca;
-	--secondary-05: #ffd88d;
-
-	/* #endregion Color app */
-
-	/* #region Fonts */
-
-	/* #region font-size */
-	--fs-h1: 64px;
-	--fs-h2: 48px;
-	--fs-h3: 40px;
-	--fs-h4: 32px;
-	--fs-h5: 24px;
-	--fs-title-1: 20px;
-	--fs-title-mobile: 18px;
-	--fs-title-2: 13px;
-	--fs-base-1: 15px;
-	--fs-base-2: 14px;
-	--fs-body-1: 15px;
-	--fs-body-2: 14px;
-	--fs-caption-1: 13px;
-	--fs-caption-2: 12px;
-	--fs-button-1: 15px;
-	--fs-button-2: 13px;
-
-	/* #endregion font-size */
-
-	/* #region line-height */
-	--lh-h1: 48px;
-	--lh-h2: 48px;
-	--lh-h3: 40px;
-	--lh-h4: 32px;
-	--lh-h5: 24px;
-	--lh-title: 32px;
-	--lh-base: 24px;
-	--lh-body: 24px;
-	--lh-caption: 16px;
-	--lh-caption-2MD: 12px;
-	--lh-button: 24px;
-
-	/* #endregion line-height */
-
-	/* #region font-weight */
-	--fw-boold: 700;
-	--fw-semiboold: 600;
-	--fw-medium: 500;
-
-	/* #endregion font-weight */
-
-	/* #region letter-spacing */
-	--ls-xl: -0.03em;
-	--ls-md: -0.02em;
-	--ls-xm: -0.01em;
-	--ls-xs: -0.015em;
-
-	/* #endregion letter-spacing */
-
-	/* #endregion Fonts */
-
-	/* #region Color Text */
-	--text-color: var(--neutral-01);
-
-	/* #endregion Color Text */
-
-	/* #region UI */
-
-	/* #region UI Button */
-
-	/* #region Color Button */
-	--button-secondary-bg: var(--neutral-07);
-	--button-primary-bg: var(--primary-01);
-	--button-text-color-primary: var(--neutral-01);
-	--button-text-color: var(--neutral-01);
-
-	/* #endregion Color Button */
-	--button-secondary-border: 2px solid var(--neutral-06);
-	--button-secondary-border-shadow: inset 0 0 0 2px var(--neutral-06);
-	--button-radius: 12px;
-	--button-md-padding: 12px 20px;
-	--button-sm-padding: 8px 16px;
-	--button-max-width: 311px;
-
-	/* #endregion UI Button */
-
-	/* #region UI Default param */
-	--default-padding: 8px 16px;
-	--default-fs: 15px;
-	--default-border: none;
-	--app-bg: var(--neutral-07);
-
-	/* #endregion UI Default param */
-
-	/* #region UI Input/
-
-	/*#region Color Input */
-	--input-bg: var(--neutral-08);
-	--input-color-placeholder: var(--neutral-shades1-04-75);
-	--input-color-icon: var(--neutral-04);
-	--input-color-active-border: var(--primary-01);
-	--input-color-active-bg: var(--neutral-08);
-	--input-color-text: var(--neutral-01);
-
-	/* #endregion Color Input */
-
-	--input-color-border-error: var(--primary-03);
-	--input-bg-error: rgba(255 188 153/10%);
-	--input-text-error: var(--primary-03);
-	--input-icon-error: var(--primary-01);
-	--input-max-width: 311px;
-	--auth-color-botomBorder: var(--neutral-06);
-	--auth-color-heads: var(--neutral-shades1-04-75);
-	--auth-color-heads-in: var(--neutral-01);
-
-	/* #endregion Color Input */
-
-	/* #endregion UI Input */
-
-	/* #endregion UI */
-
-	/* #region UI */
-
-	/* #endregion UI */
+	--p1: #2a85ff;
+	--p2: #83bf6e;
+	--p3: #ff6a55;
+	--p4: #8e59ff;
+	--s1: #ffbc99;
+	--s2: #cabdff;
+	--s3: #b1e5fc;
+	--s4: #b5e4ca;
+	--s5: #ffd88d;
+	--n: #fff;
+	--n1: #fcfcfc;
+	--n2: #f4f4f4;
+	--n3: #efefef;
+	--n4: #6f767e;
+	--n5: #33383f;
+	--n6: #272b30;
+	--n7: #1a1d1f;
+	--n8: #111315;
+	--shades1: #9a9fa5;
+	--shades2: #6f767e;
+	--shades3: rgba(#6f767e, 0.4);
+	--shades4: rgba(#111315, 0.5);
+	--button-bg-secondary: var(--n1);
+	--button-color: var(--n7);
+	--button-bg-primary: var(--p1);
+	--button-border-shadow: 0 0 0 2px var(--n3) inset;
+	--button-border-shadow-hover: 0 0 0 2px var(--n7) inset;
+	--svg-fill: var(--n7);
 }
 
-body.light {
-	--input-bg: var(--neutral-02);
-	--input-color-placeholder: var(--neutral-shades1-04-75);
-	--input-color-active-border: var(--neutral-shades1-04-75);
-	--input-color-active-bg: var(--neutral-00);
-	--input-color-text: var(--neutral-07);
-	--input-bg-error: rgb(255 189 153 / 25%);
-	--text-color: var(--neutral-07);
-	--auth-color-botomBorder: var(--neutral-03);
-	--button-secondary-bg: var(--neutral-01);
-	--button-secondary-border-shadow: inset 0 0 0 2px var(--neutral-03);
-	--button-text-color: var(--neutral-07);
-	--auth-color-heads: var(--neutral-shades1-04-75);
-	--auth-color-heads-in: var(--neutral-07);
-	--app-bg: var(--neutral-01): 
-}
+body.dark{
+	--button-color: var(--n1);
+	--button-bg-secondary: var(--n7);
+	--button-border-shadow: 0 0 0 2px var(--n6) inset;
+	--button-border-shadow-hover: 0 0 0 2px var(--n3) inset;
+	--svg-fill: var(--n1);
 
-body{
-	background-color: var(--app-bg);
-}
 
-body.light{
-	background-color: var(--neutral-01);
 }

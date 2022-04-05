@@ -1,5 +1,5 @@
-import '../src/styles/globals.css';
-import '../src/styles/reset.css';
+import '../src/styles/app.scss';
+import  '../src/styles/globals.css'
 
 import { themes } from '@storybook/theming';
 
@@ -20,6 +20,7 @@ export const parameters = {
 		dark: { ...themes.dark, appBg: 'black' },
 	},
 	themes: {
+		default: 'dark',
 		list: [
 			{ name: 'dark', class: 'dark', color: '#111315' },
 			{ name: 'light', class: 'light', color: '#F4F4F4' },

@@ -1,10 +1,120 @@
-/* The component style is inserted here. */
+@import '../../styles/helpers';
 
-.license{
-  display: grid;
-  grid-template-columns: auto 1fr;
+.login {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-  a{
-    max-width: 380px;
-  }
+	height: 100vh;
+	padding: 48px;
+
+	background: $n1;
+
+	@include m {
+		padding: 24px;
+	}
+
+	@include dark {
+		background: $n7;
+	}
+}
+
+.wrapper {
+	max-width: 296px;
+
+	@include m {
+		max-width: 100%;
+	}
+}
+
+.logo {
+	display: inline-block;
+
+	width: 48px;
+	margin-bottom: 32px;
+
+	img {
+		width: 100%;
+	}
+}
+
+.title {
+	margin-bottom: 32px;
+}
+
+.head {
+	margin-bottom: 32px;
+	padding-bottom: 32px;
+
+	border-bottom: 2px solid $n3;
+
+	@include dark {
+		border-color: $n6;
+	}
+}
+
+.subtitle {
+	margin-bottom: 20px;
+
+	@include body2-s;
+}
+
+.btns {
+	display: flex;
+
+	margin: 0 -4px;
+
+	.button {
+		flex: 0 0 calc(50% - 8px);
+
+		width: calc(50% - 8px);
+		margin: 0 4px;
+		padding: 0 16px;
+
+		img {
+			margin-right: 10px;
+		}
+	}
+}
+
+.body {
+	.button {
+		width: 100%;
+	}
+}
+
+.field {
+	margin-bottom: 12px;
+}
+
+.note {
+	margin-top: 32px;
+
+	@include body2-s;
+
+	color: $shades1;
+}
+
+.info {
+	margin-top: 32px;
+
+	@include caption1;
+
+	color: $n4;
+
+	a {
+		transition: color 0.2s;
+
+		font-weight: 700;
+
+		color: $n7;
+
+		@include dark {
+			color: $n1;
+		}
+
+		&:hover {
+			color: $p1;
+		}
+	}
 }

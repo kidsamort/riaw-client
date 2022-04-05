@@ -1,37 +1,36 @@
-import cn from 'classnames';
-import { ComponentPropsWithoutRef } from 'react';
-import { ButtonProps, ButtonIcon } from './button.props';
-import { ReactComponent as CloseIcon } from './icons/close.svg';
-import styles from './button.module.css';
-import { ButtonStyled } from './button.styled';
+import { ButtonProps } from './button.props';
+import styles from './button.module.scss';
+import { Icon } from '../icon';
+import { icons } from '../icon/ui';
+import classNames from 'classnames';
+import { WraperStyled } from './button.styled';
 
 export const Button = ({
+	Type,
 	icon,
-	size,
-	color,
-	children,
 	className,
-	...props
+	size,
+	deActive,
+	right,
+	stretch,
+	children,
 }: ButtonProps): JSX.Element => {
-	const iconRender = (image: ButtonIcon | ComponentPropsWithoutRef<'svg'>) => {
-		switch (icon) {
-			case ButtonIcon.CLOSE:
-				return <CloseIcon />;
-			default:
-				return icon;
-				break;
-		}
+	const log = () => {
+		console.log(Boolean(icon));
 	};
 	return (
-		<ButtonStyled
+		<WraperStyled
+			onClick={log}
 			size={size}
+			Type={Type}
 			icon={icon}
-			color={color}
-			className={cn(styles.button, className)}
-			{...props}
+			right={right}
+			stretch={stretch}
+			deActive={deActive}
+			className={classNames(styles.button, className)}
 		>
+			{icon && <Icon className={styles.icon} size={20} names={icon} />}
 			{children}
-			{icon && iconRender(icon)}
-		</ButtonStyled>
+		</WraperStyled>
 	);
 };
