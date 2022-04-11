@@ -26,6 +26,7 @@ const customViewports = {
 };
 
 export const parameters = {
+	layout: 'fullscreen',
 	actions: { argTypesRegex: '^on[A-Z].*' },
 	docs: {
 		container: DocsContainer,

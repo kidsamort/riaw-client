@@ -40,12 +40,19 @@ export const setThemeUser = (
 };
 
 export const clearPreLoadTheme = () => {
-	window.onload = function () {
-		document.body.classList.remove('light');
-		document.body.classList.remove('dark');
-		document.querySelectorAll('.preLoadTheme').forEach((item) => item.remove());
-		document
-			.querySelectorAll('.preLoadTheme__value')
-			.forEach((item) => item.remove());
-	};
+	window.addEventListener(
+		'pageshow',
+		function () {
+			document.body.classList.remove('light');
+			document.body.classList.remove('dark');
+			document
+				.querySelectorAll('.preLoadTheme')
+				.forEach((item) => item.remove());
+			document
+				.querySelectorAll('.preLoadTheme__value')
+				.forEach((item) => item.remove());
+		},
+		false,
+	);
+	window.onload = function () {};
 };
