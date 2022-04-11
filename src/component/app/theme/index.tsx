@@ -22,7 +22,7 @@ export const Theme = ({ children }: ThemeProps): JSX.Element => {
 			dispath,
 		);
 
-		clearPreLoadTheme();
+		// clearPreLoadTheme();
 	}, []);
 
 	return (
