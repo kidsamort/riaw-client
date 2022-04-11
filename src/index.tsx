@@ -1,23 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
-import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from 'styled-components';
 
-const darkTtheme = {
-	mode: 'dark',
-};
-const lightTtheme = {
-	mode: 'light',
-};
+import { Provider } from 'react-redux';
+import { setupStore } from 'redux/store/index.store';
+
+import App from './component/app';
+
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+const store = setupStore();
 
 ReactDOM.render(
 	<React.StrictMode>
-		{/* <ThemeProvider theme={theme}> */}
-		<BrowserRouter>
+		<Provider store={store}>
 			<App />
-		</BrowserRouter>
-		{/* </ThemeProvider> */}
+		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root'),
 );

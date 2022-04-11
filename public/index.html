@@ -3,11 +3,128 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="normalize.css" />
+		<style class="preLoadTheme">
+			.dark {
+				background: #1a1d1f;
+				color: #fcfcfc;
+			}
+			.light {
+				background: #fcfcfc;
+				color: #1a1d1f;
+			}
+		</style>
+		<style class="preLoadTheme">
+			#root {
+				position: absolute;
+				display: none;
+			}
+			html,
+			body {
+				height: 100%;
+			}
+
+			body {
+				align-items: center;
+				display: flex;
+				justify-content: center;
+			}
+
+			.preLoadTheme {
+				animation: preLoadTheme-turn 1s linear infinite;
+				padding: 1rem;
+				max-width: 60px;
+				width: 100%;
+			}
+			@keyframes preLoadTheme-turn {
+				50% {
+					transform: rotate(180deg);
+				}
+				100% {
+					transform: rotate(720deg);
+				}
+			}
+			.preLoadTheme__value {
+				animation: preLoadTheme-stroke 6s linear infinite;
+				fill: none;
+				stroke-dasharray: 63;
+				stroke-dashoffset: 63;
+				stroke-linecap: round;
+				stroke-width: 4;
+			}
+			.preLoadTheme__value:nth-child(1) {
+				stroke: dodgerblue;
+			}
+			.preLoadTheme__value:nth-child(2) {
+				stroke: mediumspringgreen;
+				animation-delay: 1s;
+			}
+			.preLoadTheme__value:nth-child(3) {
+				stroke: crimson;
+				animation-delay: 2s;
+			}
+			.preLoadTheme__value:nth-child(4) {
+				stroke: peachpuff;
+				animation-delay: 3s;
+			}
+			.preLoadTheme__value:nth-child(5) {
+				stroke: chocolate;
+				animation-delay: 4s;
+			}
+			.preLoadTheme__value:nth-child(6) {
+				stroke: pink;
+				animation-delay: 5s;
+			}
+			@keyframes preLoadTheme-stroke {
+				8.3333333333% {
+					stroke-dashoffset: 0;
+				}
+				16.6666666667%,
+				100% {
+					stroke-dashoffset: 63;
+				}
+			}
+		</style>
 		<title>React App</title>
 	</head>
 	<body>
+		<script class="preLoadTheme">
+			const savedTheme = localStorage.getItem('theme');
+			const themes = ['dark', 'light'];
+			console.log(`savedTheme: ${savedTheme}`);
+	
+			const prefersDark =
+				window.matchMedia &&
+				window.matchMedia('(prefers-color-scheme: dark)').matches;
+				console.log(`prefersDark: ${prefersDark}`);
+	
+			if (savedTheme && themes.includes(savedTheme)) {
+				console.log(`if 1: ${savedTheme}`);
+				document.body.classList.add(savedTheme);
+			} else if (prefersDark) {
+				console.log(`if 2: ${prefersDark}`);
+				document.body.classList.add('dark');
+				localStorage.setItem('theme', 'dark');
+			} else {
+				console.log(`if 2: ${'light'}`);
+				document.body.classList.add('light');
+				localStorage.setItem('theme', 'light');
+			}
+		</script>
+		<svg class="preLoadTheme" viewBox="0 0 24 24">
+			<circle class="preLoadTheme__value" cx="12" cy="12" r="10" />
+			<circle class="preLoadTheme__value" cx="12" cy="12" r="10" />
+			<circle class="preLoadTheme__value" cx="12" cy="12" r="10" />
+			<circle class="preLoadTheme__value" cx="12" cy="12" r="10" />
+			<circle class="preLoadTheme__value" cx="12" cy="12" r="10" />
+			<circle class="preLoadTheme__value" cx="12" cy="12" r="10" />
+		</svg>
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="root"></div>
 	</body>
+
 </html>
