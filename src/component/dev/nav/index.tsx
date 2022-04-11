@@ -13,7 +13,7 @@ export const Nav = ({ className, children }: NavProps): JSX.Element => {
 		<WraperStyled className={className}>
 			<ul>
 				<li>
-					<h4>dev tools</h4>
+					<h4>dev tool 0.1</h4>
 				</li>
 				<li>
 					<Link to="/auth">auth</Link>
