@@ -25,8 +25,23 @@ const Auth = (): JSX.Element => {
 			<styled.Block>
 				<Text type={font.style.caption1}>или используйте свои данные</Text>
 				<styled.Input>
-					<Input icon="mail" type={'name'} placeholder="Имя или почта" />
-					<Input icon="lock" type={'password'} placeholder="Пароль" />
+					<Input
+						icon="mail"
+						type="text"
+						name="login"
+						value=""
+						required
+						autoFocus
+						placeholder="Имя или почта"
+					/>
+					<Input
+						icon="lock"
+						type="password"
+						name="password"
+						value=""
+						required
+						placeholder="Пароль"
+					/>
 					<Button types="primary" size="md">
 						Войти
 					</Button>
