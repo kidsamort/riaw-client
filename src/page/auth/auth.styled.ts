@@ -36,7 +36,7 @@ const Block = styled.div`
 	display: grid;
 	gap: 20px;
 `;
-const Input = styled.div`
+const Input = styled.form`
 	display: grid;
 	gap: 12px;
 `;

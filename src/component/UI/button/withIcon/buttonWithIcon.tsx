@@ -31,7 +31,6 @@ export const ButtonWithIcon = ({
 				iconSize &&
 				icon && <Icon size={iconSize} name={'add'} color={iconColor} />
 			)}
-			{console.log(Boolean(props.children))}
 			{props.children}
 		</ButtonWithIconStyled>
 	);

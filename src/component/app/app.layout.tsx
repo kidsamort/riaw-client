@@ -1,19 +1,19 @@
 import { LayoutProps } from './appLayout.props';
 import { Theme } from './theme';
 import { FunctionComponent } from 'react';
-import AppRouter from './router';
+import { AppRouter } from './router';
 import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyles } from 'style/global.styled';
 
 const AppLayout = ({ children }: LayoutProps): JSX.Element => {
 	return (
-		<BrowserRouter>
-			<Theme>
+		<Theme>
+			<BrowserRouter>
 				<GlobalStyles />
 				{children}
 				<AppRouter />
-			</Theme>
-		</BrowserRouter>
+			</BrowserRouter>
+		</Theme>
 	);
 };
 

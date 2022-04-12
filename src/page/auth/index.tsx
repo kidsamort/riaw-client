@@ -27,26 +27,28 @@ const Auth = (): JSX.Element => {
 				<styled.Input>
 					<Input
 						icon="mail"
-						type="text"
+						type="name"
 						name="login"
-						value=""
-						required
 						autoFocus
+						autoComplete="username"
+						aria-autocomplete="list"
 						placeholder="Имя или почта"
 					/>
 					<Input
 						icon="lock"
 						type="password"
 						name="password"
-						value=""
-						required
+						iconRight="smile"
 						placeholder="Пароль"
+						autoComplete="new-password"
+						aria-autocomplete="list"
 					/>
 					<Button types="primary" size="md">
 						Войти
 					</Button>
 				</styled.Input>
 			</styled.Block>
+			<img src="capcha.png" alt="capcha" />
 			<Text type={font.style.caption1}>
 				<styled.Span>У вас нет аккаунта? </styled.Span> Зарегистрируйтесь
 			</Text>
