@@ -5,6 +5,8 @@ import { font } from 'style/helpers.styled';
 import { ButtonWithIcon } from 'component/UI/button/withIcon/buttonWithIcon';
 import { Input } from 'component/UI/input';
 import { Divider } from 'component/UI/divider';
+import { AuthInput } from './input';
+import { Outlet } from 'react-router-dom';
 
 const Auth = (): JSX.Element => {
 	return (
@@ -24,34 +26,13 @@ const Auth = (): JSX.Element => {
 			<Divider size={2} direction="horizontal" />
 			<styled.Block>
 				<Text type={font.style.caption1}>или используйте свои данные</Text>
-				<styled.Input>
-					<Input
-						icon="mail"
-						type="name"
-						name="login"
-						autoFocus
-						autoComplete="username"
-						aria-autocomplete="list"
-						placeholder="Имя или почта"
-					/>
-					<Input
-						icon="lock"
-						type="password"
-						name="password"
-						iconRight="smile"
-						placeholder="Пароль"
-						autoComplete="new-password"
-						aria-autocomplete="list"
-					/>
-					<Button types="primary" size="md">
-						Войти
-					</Button>
-				</styled.Input>
+				<AuthInput />
 			</styled.Block>
 			<img src="capcha.png" alt="capcha" />
 			<Text type={font.style.caption1}>
 				<styled.Span>У вас нет аккаунта? </styled.Span> Зарегистрируйтесь
 			</Text>
+			<Outlet />
 		</styled.Auth>
 	);
 };

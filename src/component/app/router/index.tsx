@@ -10,10 +10,14 @@ export function AppRouter() {
 	const privateRoutes = [{ path: 'private', element: <Private /> }];
 
 	const publicRoutes = [
-		{ path: 'auth', element: <Auth /> },
+		{
+			path: 'auth',
+			element: <Auth />,
+			children: [{ path: ':form', element: <></> }],
+		},
 		{ path: 'error', element: <Error /> },
 		{ path: '/', element: <Home /> },
-		{ path: '*', element: <Navigate to="/error" replace={true} /> },
+		// { path: '*', element: <Navigate to="/error" replace={true} /> },
 	];
 
 	const routes = auth ? { ...publicRoutes, ...privateRoutes } : publicRoutes;

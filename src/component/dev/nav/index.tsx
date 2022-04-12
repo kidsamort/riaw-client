@@ -19,6 +19,12 @@ export const Nav = ({ className, children }: NavProps): JSX.Element => {
 					<Link to="/auth">auth</Link>
 				</li>
 				<li>
+					<Link to="/auth/signin">signin</Link>
+				</li>
+				<li>
+					<Link to="/auth/signup">signup</Link>
+				</li>
+				<li>
 					<Link to="/">home</Link>
 				</li>
 				<li>
