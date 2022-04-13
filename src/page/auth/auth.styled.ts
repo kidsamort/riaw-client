@@ -5,7 +5,7 @@ import { color, font } from 'style/helpers.styled';
 import { Button } from 'component/UI/button';
 
 const Auth = styled.div<{ form: string | undefined }>`
-	max-width: 375px;
+	max-width: 320px;
 	box-sizing: inherit;
 	display: grid;
 	margin: 0 auto;
@@ -51,7 +51,8 @@ const Input = styled.form`
 `;
 
 const Head = styled.div`
-	min-height: 96px;
+	min-height: 72px;
+	margin-top: 24px;
 	display: inline-flex;
 	align-self: flex-start;
 	padding: 0 10px;
