@@ -23,9 +23,6 @@ const IconRight = styled(IconLeft)<{
 		css`
 			pointer-events: auto;
 			cursor: pointer;
-			:hover {
-				fill: ${color.primary.blue};
-			}
 		`}
 	${({ action }) =>
 		action &&
