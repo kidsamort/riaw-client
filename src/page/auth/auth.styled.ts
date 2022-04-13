@@ -50,8 +50,8 @@ const Input = styled.form`
 `;
 
 const Head = styled.div`
+	display: inline-flex;
 	margin-top: 24px;
-	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	a {
