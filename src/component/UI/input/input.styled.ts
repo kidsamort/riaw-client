@@ -34,7 +34,11 @@ const Input = styled.input<InputProps>`
 		iconRight ? 'padding: 0 48px' : 'padding: 0 10px 0 48px'};
 	&:focus {
 		background: ${({ theme }) => theme.input.bgFocus};
-		${({ theme }) => mixin.boxShadow(2, theme.input.colorPlaceholder)};
+		-webkit-appearance: none;
+		-webkit-box-shadow: ${({ theme }) =>
+			mixin.boxShadow(2, theme.input.colorPlaceholder)};
+		box-shadow: ${({ theme }) =>
+			mixin.boxShadow(2, theme.input.colorPlaceholder)};
 	}
 `;
 

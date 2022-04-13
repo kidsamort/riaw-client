@@ -157,6 +157,6 @@ export const font = {
 };
 export const mixin = {
 	boxShadow(stroke: number, color = 'rgba(111, 118, 126, 0.4)') {
-		return `box-shadow: 0 0 0 ${stroke}px ${color} inset;`;
+		return `0 0 0 ${stroke}px ${color} inset;`;
 	},
 };
