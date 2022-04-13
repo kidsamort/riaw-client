@@ -4,17 +4,18 @@ import { DefaultTheme } from 'styled-components';
 import { color, font } from 'style/helpers.styled';
 import { Button } from 'component/UI/button';
 
-const Auth = styled.div<{
-	props: AuthProps;
-	theme: DefaultTheme;
-}>`
+const Auth = styled.div<{ form: string | undefined }>`
+	max-width: 375px;
 	box-sizing: inherit;
 	display: grid;
-	justify-content: center;
-	align-content: center;
+	margin: 0 auto;
+	grid-template-rows: auto 1fr;
+	align-items: flex-start;
+	justify-content: stretch;
 	height: 100vh;
 	gap: 32px;
 	a {
+		transition: all 0.3s ease-in;
 		text-decoration: none;
 		${font.style.caption1}
 		${({ theme }) =>
@@ -50,18 +51,24 @@ const Input = styled.form`
 `;
 
 const Head = styled.div`
+	min-height: 96px;
 	display: inline-flex;
-	margin-top: 24px;
+	align-self: flex-start;
+	padding: 0 10px;
 	justify-content: space-between;
 	align-items: center;
-	a {
-		transition: all 0.3s ease-in;
-	}
+`;
+const Body = styled.div`
+	display: grid;
+	padding: 0 10px;
+	align-content: center;
+	gap: 32px;
 `;
 export default {
 	Auth,
 	Span,
 	Head,
+	Body,
 	Block,
 	Input,
 	ButtonHover,

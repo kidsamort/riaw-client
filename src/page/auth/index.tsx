@@ -10,53 +10,59 @@ import { IconDefaultStyled } from 'component/UI/icon/icon.styled';
 
 const Auth = (): JSX.Element => {
 	const { form } = useParams();
+	console.log(form);
 
 	return (
-		<styled.Auth props={{}}>
-			{form === 'signup' && (
-				<styled.Head>
-					<IconDefaultStyled size={48} />
+		<styled.Auth form={form}>
+			<styled.Head>
+				{form === 'signup' && (
+					<>
+						<IconDefaultStyled size={48} />
+						<Text type={font.style.caption1}>
+							<styled.Span>Уже зарегистрированы? </styled.Span>
+							<Link to="signin"> Войти</Link>
+						</Text>
+					</>
+				)}
+			</styled.Head>
+
+			<styled.Body>
+				<h2>{form === 'signup' ? 'Регистрация' : 'Вход'}</h2>
+				<styled.Block>
+					<Text type={font.style.bodySemibold2}>продолжите через аккаунт</Text>
+					<styled.AuthSocial>
+						<ButtonWithIcon
+							icon="google"
+							types="secondary"
+							iconSize={24}
+							size="md"
+						>
+							Google
+						</ButtonWithIcon>
+						<ButtonWithIcon
+							icon="telegram"
+							iconColor={color.primary.blueHEX}
+							types="secondary"
+							iconSize={24}
+							size="md"
+						>
+							Telegram
+						</ButtonWithIcon>
+					</styled.AuthSocial>
+				</styled.Block>
+				<Divider size={2} direction="horizontal" />
+				<styled.Block>
+					<Text type={font.style.caption1}>или используйте свои данные</Text>
+					<AuthInput />
+				</styled.Block>
+				<img src="capcha.png" alt="capcha" />
+				{form === 'signin' && (
 					<Text type={font.style.caption1}>
-						<styled.Span>Уже зарегистрированы? </styled.Span>
-						<Link to="signin"> Войти</Link>
+						<styled.Span>У вас нет аккаунта? </styled.Span>
+						<Link to="signup"> Зарегистрируйтесь</Link>
 					</Text>
-				</styled.Head>
-			)}
-			<h2>Вход</h2>
-			<styled.Block>
-				<Text type={font.style.bodySemibold2}>продолжите через аккаунт</Text>
-				<styled.AuthSocial>
-					<ButtonWithIcon
-						icon="google"
-						types="secondary"
-						iconSize={24}
-						size="md"
-					>
-						Google
-					</ButtonWithIcon>
-					<ButtonWithIcon
-						icon="telegram"
-						iconColor={color.primary.blueHEX}
-						types="secondary"
-						iconSize={24}
-						size="md"
-					>
-						Telegram
-					</ButtonWithIcon>
-				</styled.AuthSocial>
-			</styled.Block>
-			<Divider size={2} direction="horizontal" />
-			<styled.Block>
-				<Text type={font.style.caption1}>или используйте свои данные</Text>
-				<AuthInput />
-			</styled.Block>
-			<img src="capcha.png" alt="capcha" />
-			{form === 'signin' && (
-				<Text type={font.style.caption1}>
-					<styled.Span>У вас нет аккаунта? </styled.Span>
-					<Link to="signup"> Зарегистрируйтесь</Link>
-				</Text>
-			)}
+				)}
+			</styled.Body>
 			<Outlet />
 		</styled.Auth>
 	);
