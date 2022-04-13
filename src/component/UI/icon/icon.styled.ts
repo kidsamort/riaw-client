@@ -3,8 +3,7 @@ import { IconSize } from './icon.props';
 
 export const IconDefaultStyled = styled.div<{
 	size: IconSize;
-	color: string | undefined;
-	theme: DefaultTheme;
+	color?: string;
 }>`
 	transition: background 0.3s ease-in;
 	width: ${(props) => props.size}px;

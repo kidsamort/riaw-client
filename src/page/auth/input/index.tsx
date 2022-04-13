@@ -16,7 +16,6 @@ export const AuthInput = ({
 		(state) => state.authReducer,
 	);
 	const { form } = useParams();
-	console.log(form);
 	const { setEmail, setName, setPassword } = AuthSlice.actions;
 	return (
 		<styled.Input>

@@ -12,7 +12,7 @@ const IconLeft = styled.div<InputProps>`
 	justify-content: center;
 	align-items: center;
 	width: 48px;
-	${({ theme }) => `fill: ${theme.text}`};
+	${({ theme }) => `fill: ${color.neuteral.b4}`};
 `;
 const IconRight = styled(IconLeft)`
 	right: 0;

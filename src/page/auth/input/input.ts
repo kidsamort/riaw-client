@@ -32,7 +32,7 @@ export const signup: InputAuth[] = [
 	{
 		id: 3,
 		icon: 'lock',
-		iconRight: 'smile',
+		iconRight: 'showLight',
 		type: 'password',
 		name: 'password',
 		autoComplete: 'new-password',
@@ -52,7 +52,7 @@ export const signin: InputAuth[] = [
 	{
 		id: 5,
 		icon: 'lock',
-		iconRight: 'smile',
+		iconRight: 'showLight',
 		type: 'password',
 		name: 'password',
 		autoComplete: 'current-password',

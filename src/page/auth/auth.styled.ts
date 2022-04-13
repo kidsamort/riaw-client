@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { AuthProps } from './auth.props';
 import { DefaultTheme } from 'styled-components';
-import { color } from 'style/helpers.styled';
+import { color, font } from 'style/helpers.styled';
 import { Button } from 'component/UI/button';
 
 const Auth = styled.div<{
@@ -14,6 +14,14 @@ const Auth = styled.div<{
 	align-content: center;
 	height: 100vh;
 	gap: 32px;
+	a {
+		text-decoration: none;
+		${font.style.caption1}
+		${({ theme }) =>
+			css`
+				color: ${theme.text};
+			`}
+	}
 `;
 
 const Span = styled.span`
@@ -41,9 +49,18 @@ const Input = styled.form`
 	gap: 12px;
 `;
 
+const Head = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	a {
+		transition: all 0.3s ease-in;
+	}
+`;
 export default {
 	Auth,
 	Span,
+	Head,
 	Block,
 	Input,
 	ButtonHover,

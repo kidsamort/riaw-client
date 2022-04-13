@@ -4,6 +4,8 @@ import useTheme from 'hook/theme.hook';
 import { Link } from 'react-router-dom';
 import { toggleTheme } from 'component/app/theme/theme';
 import { useAppDispatch } from 'hook/rtk.hook';
+import { ThemeButton } from 'component/UI/button/withIcon/buttonWithIcon.styled';
+import { Icon } from 'component/UI/icon';
 
 export const Nav = ({ className, children }: NavProps): JSX.Element => {
 	const { nowTheme, setTheme } = useTheme();
@@ -34,19 +36,6 @@ export const Nav = ({ className, children }: NavProps): JSX.Element => {
 					<Link to="/private">private</Link>
 				</li>
 				<li>theme {nowTheme?.toString()}</li>
-				<li>
-					<button onClick={() => toggleTheme(nowTheme, setTheme, dispath)}>
-						{nowTheme === 'dark' ? (
-							<span aria-label="Light mode" role="img">
-								🌞
-							</span>
-						) : (
-							<span aria-label="Dark mode" role="img">
-								🌜
-							</span>
-						)}
-					</button>
-				</li>
 			</ul>
 		</WraperStyled>
 	);

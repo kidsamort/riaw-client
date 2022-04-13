@@ -21,6 +21,7 @@ export const color = {
 	},
 	primary: {
 		blue: 'rgba(42, 133, 255, 1)',
+		blueHEX: '#2A85FF',
 		green: 'rgba(131, 191, 110, 1)',
 		red: 'rgba(255, 106, 85, 1)',
 		purple: 'rgba(142, 89, 255, 1)',

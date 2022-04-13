@@ -29,7 +29,7 @@ export const ButtonWithIcon = ({
 				/>
 			) : (
 				iconSize &&
-				icon && <Icon size={iconSize} name={'add'} color={iconColor} />
+				icon && <Icon size={iconSize} name={icon} color={iconColor} />
 			)}
 			{props.children}
 		</ButtonWithIconStyled>
