@@ -1,6 +1,6 @@
 import { Button } from 'component/UI/button';
 import { Input } from 'component/UI/input';
-import { useAppSelector } from 'hook/rtk.hook';
+import { useAppDispatch, useAppSelector } from 'hook/rtk.hook';
 import { Navigate, useParams } from 'react-router-dom';
 import { AuthSlice } from 'redux/reducer/auth.slice';
 import { signin, signup } from './input';
@@ -12,11 +12,18 @@ export const AuthInput = ({
 	children,
 	...props
 }: AuthInputComponentProps): JSX.Element => {
-	const { email, name, password } = useAppSelector(
+	const { form } = useParams();
+	const { email, name, password, showPass } = useAppSelector(
 		(state) => state.authReducer,
 	);
-	const { form } = useParams();
-	const { setEmail, setName, setPassword } = AuthSlice.actions;
+	const { setEmail, setName, setPassword, setShowPass } = AuthSlice.actions;
+	console.log(showPass);
+
+	const dispatch = useAppDispatch();
+	const clickShowPass = () => {
+		dispatch(setShowPass(!showPass));
+	};
+
 	return (
 		<styled.Input>
 			{form === 'signup' ? (
@@ -26,8 +33,11 @@ export const AuthInput = ({
 							key={input.id}
 							icon={input.icon}
 							iconRight={input.iconRight}
-							type={input.type}
 							name={input.name}
+							type={showPass ? 'text' : input.type}
+							rightActive={
+								input.type === 'password' ? clickShowPass : undefined
+							}
 							autoFocus={input.autoFocus}
 							autoComplete={input.autoComplete}
 							placeholder={input.placeholder}
@@ -41,8 +51,11 @@ export const AuthInput = ({
 							key={input.id}
 							icon={input.icon}
 							iconRight={input.iconRight}
-							type={input.type}
 							name={input.name}
+							type={showPass ? 'text' : input.type}
+							rightActive={
+								input.type === 'password' ? clickShowPass : undefined
+							}
 							autoFocus={input.autoFocus}
 							autoComplete={input.autoComplete}
 							placeholder={input.placeholder}

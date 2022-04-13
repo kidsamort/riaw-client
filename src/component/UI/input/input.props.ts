@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ReactNode } from 'react';
+import { ComponentPropsWithoutRef, MouseEventHandler, ReactNode } from 'react';
 import { allIcon } from '../icon/icon';
 
 export enum InputType {}
@@ -6,7 +6,7 @@ export enum InputType {}
 export interface InputProps {
 	icon?: keyof typeof allIcon;
 	iconRight?: keyof typeof allIcon;
-	rightActive?: boolean;
+	rightActive?: () => void;
 	children?: ReactNode;
 }
 

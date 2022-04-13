@@ -4,6 +4,7 @@ interface AuthState {
 	email: string;
 	name: string;
 	password: string;
+	showPass: boolean;
 }
 
 export interface AuthAction {
@@ -15,6 +16,7 @@ const initialState: AuthState = {
 	email: '',
 	name: '',
 	password: '',
+	showPass: false,
 };
 
 export const AuthSlice = createSlice({
@@ -29,6 +31,9 @@ export const AuthSlice = createSlice({
 		},
 		setPassword(state, action: PayloadAction<string>) {
 			state.password = action.payload;
+		},
+		setShowPass(state, action: PayloadAction<boolean>) {
+			state.showPass = action.payload;
 		},
 	},
 });
