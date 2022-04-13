@@ -15,17 +15,22 @@ const IconLeft = styled.div<InputProps>`
 	${({ theme }) => `fill: ${color.neuteral.b4}`};
 `;
 const IconRight = styled(IconLeft)<{
-	active: boolean;
-	action: boolean | undefined;
+	$active: boolean;
+	$action: boolean;
 }>`
-	${({ active }) =>
-		active &&
+	${({ $active }) =>
+		$active &&
 		css`
 			pointer-events: auto;
 			cursor: pointer;
+			@media (hover: hover) {
+				&:hover {
+					fill: ${color.primary.blue};
+				}
+			}
 		`}
-	${({ action }) =>
-		action &&
+	${({ $action }) =>
+		$action &&
 		css`
 			fill: ${color.primary.blue};
 		`}

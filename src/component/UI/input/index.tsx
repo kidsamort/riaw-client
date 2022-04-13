@@ -25,8 +25,8 @@ export const Input = ({
 
 			{iconRight && (
 				<styled.IconRight
-					active={Boolean(rightAction)}
-					action={rightActive}
+					$active={Boolean(rightAction)}
+					$action={Boolean(rightActive)}
 					onClick={rightAction}
 				>
 					<Icon name={iconRight} size={24} />
