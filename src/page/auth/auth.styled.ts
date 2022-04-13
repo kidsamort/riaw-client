@@ -9,11 +9,11 @@ const Auth = styled.div<{ form: string | undefined }>`
 	box-sizing: inherit;
 	display: grid;
 	margin: 0 auto;
+	padding: 0 10px;
 	grid-template-rows: auto 1fr;
-	align-items: flex-start;
+	align-content: center;
 	justify-content: stretch;
 	height: 100vh;
-	gap: 32px;
 	a {
 		transition: all 0.3s ease-in;
 		text-decoration: none;
@@ -51,17 +51,14 @@ const Input = styled.form`
 `;
 
 const Head = styled.div`
-	min-height: 72px;
-	margin-top: 24px;
-	display: inline-flex;
-	align-self: flex-start;
-	padding: 0 10px;
+	padding: 24px 0;
+	display: inline-grid;
 	justify-content: space-between;
+	grid-template-columns: auto auto;
 	align-items: center;
 `;
 const Body = styled.div`
 	display: grid;
-	padding: 0 10px;
 	align-content: center;
 	gap: 32px;
 `;
