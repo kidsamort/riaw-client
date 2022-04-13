@@ -1,6 +1,7 @@
 import { Button } from 'component/UI/button';
 import { Input } from 'component/UI/input';
 import { useAppDispatch, useAppSelector } from 'hook/rtk.hook';
+import { useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { AuthSlice } from 'redux/reducer/auth.slice';
 import { signin, signup } from './input';
@@ -17,7 +18,9 @@ export const AuthInput = ({
 		(state) => state.authReducer,
 	);
 	const { setEmail, setName, setPassword, setShowPass } = AuthSlice.actions;
-	console.log(showPass);
+	useEffect(() => {
+		dispatch(setShowPass(false));
+	}, [form]);
 
 	const dispatch = useAppDispatch();
 	const clickShowPass = () => {
@@ -32,12 +35,17 @@ export const AuthInput = ({
 						<Input
 							key={input.id}
 							icon={input.icon}
-							iconRight={input.iconRight}
+							iconRight={
+								input.type === 'password' && showPass
+									? 'showLight'
+									: input.iconRight
+							}
 							name={input.name}
 							type={showPass ? 'text' : input.type}
-							rightActive={
+							rightAction={
 								input.type === 'password' ? clickShowPass : undefined
 							}
+							rightActive={showPass}
 							autoFocus={input.autoFocus}
 							autoComplete={input.autoComplete}
 							placeholder={input.placeholder}
@@ -50,12 +58,17 @@ export const AuthInput = ({
 						<Input
 							key={input.id}
 							icon={input.icon}
-							iconRight={input.iconRight}
+							iconRight={
+								input.type === 'password' && showPass
+									? 'showLight'
+									: input.iconRight
+							}
 							name={input.name}
 							type={showPass ? 'text' : input.type}
-							rightActive={
+							rightAction={
 								input.type === 'password' ? clickShowPass : undefined
 							}
+							rightActive={showPass}
 							autoFocus={input.autoFocus}
 							autoComplete={input.autoComplete}
 							placeholder={input.placeholder}

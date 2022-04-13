@@ -6,7 +6,8 @@ export enum InputType {}
 export interface InputProps {
 	icon?: keyof typeof allIcon;
 	iconRight?: keyof typeof allIcon;
-	rightActive?: () => void;
+	rightActive?: boolean;
+	rightAction?: () => void;
 	children?: ReactNode;
 }
 

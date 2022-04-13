@@ -10,6 +10,7 @@ export const Input = ({
 	icon,
 	iconRight,
 	rightActive,
+	rightAction,
 	...props
 }: InputComponentProps): JSX.Element => {
 	return (
@@ -23,7 +24,11 @@ export const Input = ({
 			)}
 
 			{iconRight && (
-				<styled.IconRight active={Boolean(rightActive)} onClick={rightActive}>
+				<styled.IconRight
+					active={Boolean(rightAction)}
+					action={rightActive}
+					onClick={rightAction}
+				>
 					<Icon name={iconRight} size={24} />
 				</styled.IconRight>
 			)}

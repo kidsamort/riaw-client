@@ -14,7 +14,10 @@ const IconLeft = styled.div<InputProps>`
 	width: 48px;
 	${({ theme }) => `fill: ${color.neuteral.b4}`};
 `;
-const IconRight = styled(IconLeft)<{ active: boolean }>`
+const IconRight = styled(IconLeft)<{
+	active: boolean;
+	action: boolean | undefined;
+}>`
 	${({ active }) =>
 		active &&
 		css`
@@ -23,6 +26,11 @@ const IconRight = styled(IconLeft)<{ active: boolean }>`
 			:hover {
 				fill: ${color.primary.blue};
 			}
+		`}
+	${({ action }) =>
+		action &&
+		css`
+			fill: ${color.primary.blue};
 		`}
 	right: 0;
 `;
