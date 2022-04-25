@@ -19,8 +19,8 @@ const Auth = (): JSX.Element => {
 					<>
 						<IconDefaultStyled size={48} />
 						<Text type={font.style.caption1}>
-							<styled.Span>Уже зарегистрированы? </styled.Span>
-							<Link to="signin"> Войти</Link>
+							<styled.Span>Уже зарегистрированы?</styled.Span>
+							<Link to="signin">Войти</Link>
 						</Text>
 					</>
 				)}
