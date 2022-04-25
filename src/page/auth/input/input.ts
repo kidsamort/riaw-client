@@ -2,7 +2,6 @@ import { allIcon } from 'component/UI/icon/icon';
 import { HTMLInputTypeAttribute } from 'react';
 
 interface InputAuth {
-	id: number;
 	icon: keyof typeof allIcon;
 	type: HTMLInputTypeAttribute;
 	name: string;
@@ -14,7 +13,6 @@ interface InputAuth {
 
 export const signup: InputAuth[] = [
 	{
-		id: 1,
 		icon: 'mail',
 		type: 'email',
 		name: 'email',
@@ -23,14 +21,12 @@ export const signup: InputAuth[] = [
 		placeholder: 'Почта',
 	},
 	{
-		id: 2,
 		icon: 'profile-circle',
 		type: 'name',
 		name: 'username',
 		placeholder: 'Никнейм',
 	},
 	{
-		id: 3,
 		icon: 'lock',
 		iconRight: 'showFill',
 		type: 'password',
@@ -41,7 +37,6 @@ export const signup: InputAuth[] = [
 ];
 export const signin: InputAuth[] = [
 	{
-		id: 4,
 		icon: 'mail',
 		type: 'name',
 		name: 'login',
@@ -50,7 +45,6 @@ export const signin: InputAuth[] = [
 		placeholder: 'Имя или почта',
 	},
 	{
-		id: 5,
 		icon: 'lock',
 		iconRight: 'showFill',
 		type: 'password',

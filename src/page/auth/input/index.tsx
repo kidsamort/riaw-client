@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
+import { Navigate, useParams } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
+
 import { Button } from 'component/UI/button';
 import { Input } from 'component/UI/input';
 import { useAppDispatch, useAppSelector } from 'hook/rtk.hook';
-import { useEffect } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
 import { AuthSlice } from 'redux/reducer/auth.slice';
 import { signin, signup } from './input';
 import { AuthInputComponentProps } from './input.props';
@@ -33,7 +35,7 @@ export const AuthInput = ({
 				signup.map((input) => {
 					return (
 						<Input
-							key={input.id}
+							key={uuidv4()}
 							icon={input.icon}
 							iconRight={
 								input.type === 'password' && showPass
@@ -56,7 +58,7 @@ export const AuthInput = ({
 				signin.map((input, index) => {
 					return (
 						<Input
-							key={input.id}
+							key={uuidv4()}
 							icon={input.icon}
 							iconRight={
 								input.type === 'password' && showPass
