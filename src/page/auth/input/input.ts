@@ -32,7 +32,7 @@ export const signup: InputAuth[] = [
 		type: 'password',
 		name: 'password',
 		autoComplete: 'new-password',
-		placeholder: 'Пароль',
+		placeholder: 'Придумайте пароль',
 	},
 ];
 export const signin: InputAuth[] = [
