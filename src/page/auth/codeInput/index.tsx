@@ -67,7 +67,7 @@ export const CodeInput = ({
 							onFocus={getFocusData}
 							name={String(id)}
 							value={code[id]}
-							type={'text'}
+							type={'number'}
 						/>
 					);
 				})
