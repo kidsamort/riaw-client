@@ -9,9 +9,10 @@ interface InputAuth {
 	placeholder: string;
 	autoFocus?: boolean;
 	iconRight?: keyof typeof allIcon;
+	ariaAutocomplete?: 'list' | 'none' | 'inline' | 'both' | undefined;
 }
 
-export const signup: InputAuth[] = [
+export const signUp: InputAuth[] = [
 	{
 		icon: 'mail',
 		type: 'email',
@@ -33,9 +34,10 @@ export const signup: InputAuth[] = [
 		name: 'password',
 		autoComplete: 'new-password',
 		placeholder: 'Придумайте пароль',
+		ariaAutocomplete: 'list',
 	},
 ];
-export const signin: InputAuth[] = [
+export const signIn: InputAuth[] = [
 	{
 		icon: 'mail',
 		type: 'name',

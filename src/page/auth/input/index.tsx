@@ -6,9 +6,10 @@ import { Button } from 'component/UI/button';
 import { Input } from 'component/UI/input';
 import { useAppDispatch, useAppSelector } from 'hook/rtk.hook';
 import { AuthSlice } from 'redux/reducer/auth.slice';
-import { signin, signup } from './input';
+import { signIn, signUp } from './input';
 import { AuthInputComponentProps } from './input.props';
 import styled from './input.styled';
+import { CodeInput } from '../codeInput';
 
 export const AuthInput = ({
 	className,
@@ -30,59 +31,68 @@ export const AuthInput = ({
 	};
 
 	return (
-		<styled.Input>
-			{form === 'signup' ? (
-				signup.map((input) => {
-					return (
-						<Input
-							key={uuidv4()}
-							icon={input.icon}
-							iconRight={
-								input.type === 'password' && showPass
-									? 'showLight'
-									: input.iconRight
-							}
-							name={input.name}
-							type={showPass ? 'text' : input.type}
-							rightAction={
-								input.type === 'password' ? clickShowPass : undefined
-							}
-							rightActive={showPass}
-							autoFocus={input.autoFocus}
-							autoComplete={input.autoComplete}
-							placeholder={input.placeholder}
-						/>
-					);
-				})
-			) : form === 'signin' ? (
-				signin.map((input, index) => {
-					return (
-						<Input
-							key={uuidv4()}
-							icon={input.icon}
-							iconRight={
-								input.type === 'password' && showPass
-									? 'showLight'
-									: input.iconRight
-							}
-							name={input.name}
-							type={showPass ? 'text' : input.type}
-							rightAction={
-								input.type === 'password' ? clickShowPass : undefined
-							}
-							rightActive={showPass}
-							autoFocus={input.autoFocus}
-							autoComplete={input.autoComplete}
-							placeholder={input.placeholder}
-						/>
-					);
-				})
-			) : (
-				<Navigate to="signin" replace={true} />
-			)}
+		<>
+			<styled.Input>
+				{form === 'signup' ? (
+					signUp.map((input) => {
+						return (
+							<Input
+								key={uuidv4()}
+								icon={input.icon}
+								iconRight={
+									input.type === 'password' && showPass
+										? 'showLight'
+										: input.iconRight
+								}
+								name={input.name}
+								type={showPass ? 'text' : input.type}
+								rightAction={
+									input.type === 'password' ? clickShowPass : undefined
+								}
+								rightActive={showPass}
+								autoFocus={input.autoFocus}
+								autoComplete={input.autoComplete}
+								aria-autocomplete={input.ariaAutocomplete}
+								placeholder={input.placeholder}
+							/>
+						);
+					})
+				) : form === 'signin' ? (
+					signIn.map((input, index) => {
+						return (
+							<Input
+								key={uuidv4()}
+								icon={input.icon}
+								iconRight={
+									input.type === 'password' && showPass
+										? 'showLight'
+										: input.iconRight
+								}
+								name={input.name}
+								type={showPass ? 'text' : input.type}
+								rightAction={
+									input.type === 'password' ? clickShowPass : undefined
+								}
+								rightActive={showPass}
+								autoFocus={input.autoFocus}
+								autoComplete={input.autoComplete}
+								placeholder={input.placeholder}
+							/>
+						);
+					})
+				) : form === 'activation' ? (
+					<CodeInput />
+				) : (
+					<Navigate to="signin" replace={true} />
+				)}
+			</styled.Input>
 			<Button types="primary" size="md">
-				{form === 'signup' ? 'Зарегистрироваться' : 'Войти'}
+				{form === 'signup'
+					? 'Зарегистрироваться'
+					: form === 'signin'
+					? 'Войти'
+					: 'Продолжить'}
 			</Button>
-		</styled.Input>
+		</>
 	);
 };

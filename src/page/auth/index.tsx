@@ -15,7 +15,7 @@ const Auth = (): JSX.Element => {
 	return (
 		<styled.Auth form={form}>
 			<styled.Head>
-				{form === 'signup' && (
+				{(form === 'signup' || form === 'activation') && (
 					<>
 						<IconDefaultStyled size={48} />
 						<Text type={font.style.caption1}>
@@ -25,34 +25,45 @@ const Auth = (): JSX.Element => {
 					</>
 				)}
 			</styled.Head>
-
 			<styled.Body>
-				<h2>{form === 'signup' ? 'Регистрация' : 'Вход'}</h2>
+				<h2>
+					{form === 'signup' || form === 'activation' ? 'Регистрация' : 'Вход'}
+				</h2>
+				{(form === 'signup' || form === 'signin') && (
+					<>
+						<styled.Block>
+							<Text type={font.style.bodySemibold2}>
+								продолжите через аккаунт
+							</Text>
+							<styled.AuthSocial>
+								<ButtonWithIcon
+									icon="google"
+									types="secondary"
+									iconSize={24}
+									size="md"
+								>
+									Google
+								</ButtonWithIcon>
+								<ButtonWithIcon
+									icon="telegram"
+									iconColor={color.primary.blueHEX}
+									types="secondary"
+									iconSize={24}
+									size="md"
+								>
+									Telegram
+								</ButtonWithIcon>
+							</styled.AuthSocial>
+						</styled.Block>
+						<Divider size={2} direction="horizontal" />
+					</>
+				)}
 				<styled.Block>
-					<Text type={font.style.bodySemibold2}>продолжите через аккаунт</Text>
-					<styled.AuthSocial>
-						<ButtonWithIcon
-							icon="google"
-							types="secondary"
-							iconSize={24}
-							size="md"
-						>
-							Google
-						</ButtonWithIcon>
-						<ButtonWithIcon
-							icon="telegram"
-							iconColor={color.primary.blueHEX}
-							types="secondary"
-							iconSize={24}
-							size="md"
-						>
-							Telegram
-						</ButtonWithIcon>
-					</styled.AuthSocial>
-				</styled.Block>
-				<Divider size={2} direction="horizontal" />
-				<styled.Block>
-					<Text type={font.style.caption1}>или используйте свои данные</Text>
+					<Text type={font.style.caption1}>
+						{form === 'activation'
+							? 'код подтверждения отпрвлен проверьте почту и введите его ниже'
+							: 'или используйте свои данные'}
+					</Text>
 					<AuthInput />
 				</styled.Block>
 				<img src="capcha.png" alt="capcha" />

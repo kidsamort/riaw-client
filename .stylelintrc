@@ -4,6 +4,7 @@
 		"stylelint-config-prettier",
 		"stylelint-config-idiomatic-order"
 	],
+	"customSyntax": "postcss-lit",
 	"plugins": ["stylelint-order"],
 	"rules": {
 		"declaration-empty-line-before": null,

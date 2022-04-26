@@ -1,5 +1,3 @@
-import { useAppDispatch, useAppSelector } from 'hook/rtk.hook';
-import { AuthSlice } from 'redux/reducer/auth.slice';
 import { Icon } from '../icon';
 import { InputComponentProps } from './input.props';
 import styled from './input.styled';
