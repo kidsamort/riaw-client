@@ -68,6 +68,7 @@ export const CodeInput = ({
 							name={String(id)}
 							value={code[id]}
 							type={'number'}
+							pattern="\d*"
 						/>
 					);
 				})
