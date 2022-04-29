@@ -5,70 +5,70 @@ import { color, font } from 'style/helpers.styled';
 import { Button } from 'component/UI/button';
 
 const Auth = styled.div<{ form: string | undefined }>`
-	max-width: 320px;
-	box-sizing: inherit;
-	display: grid;
-	margin: 0 auto;
-	padding: 0 10px;
-	grid-template-rows: auto 1fr;
-	align-content: center;
-	justify-content: stretch;
-	height: 100vh;
-	a {
-		transition: all 0.3s ease-in;
-		text-decoration: none;
-		${font.style.caption1}
-		${({ theme }) =>
-			css`
-				color: ${theme.text};
-			`}
-	}
+  max-width: 320px;
+  box-sizing: inherit;
+  display: grid;
+  margin: 0 auto;
+  padding: 0 10px;
+  grid-template-rows: auto 1fr;
+  align-content: center;
+  justify-content: stretch;
+  height: 100vh;
+  a {
+    transition: all 0.3s ease-in;
+    text-decoration: none;
+    ${font.style.caption1}
+    ${({ theme }) =>
+      css`
+        color: ${theme.text};
+      `}
+  }
 `;
 
 const Span = styled.span`
-	color: ${color.neuteral.b4};
+  color: ${color.neuteral.b4};
 `;
 
 const ButtonHover = styled(Button)`
-	&:hover {
-		box-shadow: 0 0 0 2px ${color.primary.green} inset;
-	}
+  &:hover {
+    box-shadow: 0 0 0 2px ${color.primary.green} inset;
+  }
 `;
 
 const AuthSocial = styled.div`
-	display: grid;
-	grid-template-columns: auto auto;
-	gap: 8px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 8px;
 `;
 
 const Block = styled.div`
-	display: grid;
-	gap: 20px;
+  display: grid;
+  gap: 20px;
 `;
 const Input = styled.form`
-	display: grid;
-	gap: 12px;
+  display: grid;
+  gap: 12px;
 `;
 
 const Head = styled.div`
-	padding: 24px 0;
-	display: inline-grid;
-	justify-content: space-between;
-	grid-template-columns: auto auto;
-	align-items: center;
+  padding: 24px 0;
+  display: inline-grid;
+  justify-content: space-between;
+  grid-template-columns: auto auto;
+  align-items: center;
 `;
 const Body = styled.div`
-	display: grid;
-	align-content: center;
-	gap: 32px;
+  display: grid;
+  align-content: center;
+  gap: 32px;
 `;
 export default {
-	Auth,
-	Span,
-	Head,
-	Body,
-	Block,
-	Input,
-	ButtonHover,
-	AuthSocial,
+  Auth,
+  Span,
+  Head,
+  Body,
+  Block,
+  Input,
+  ButtonHover,
+  AuthSocial,
 };

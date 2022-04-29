@@ -4,7 +4,7 @@ import { EmptyProps } from './empty.props';
 const styles = css<EmptyProps>``;
 
 const Wraper = styled.div<EmptyProps>`
-	${styles}
+  ${styles}
 `;
 
 export default { Wraper };

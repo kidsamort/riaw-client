@@ -5,18 +5,18 @@ import themeReducer from '../reducer/theme.slice';
 import authReducer from '../reducer/auth.slice';
 
 const rootReducer = combineReducers({
-	userReducer,
-	themeReducer,
-	authReducer,
-	[postAPI.reducerPath]: postAPI.reducer,
+  userReducer,
+  themeReducer,
+  authReducer,
+  [postAPI.reducerPath]: postAPI.reducer,
 });
 
 export const setupStore = () => {
-	return configureStore({
-		reducer: rootReducer,
-		middleware: (getDefaultMiddleware) =>
-			getDefaultMiddleware().concat(postAPI.middleware),
-	});
+  return configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(postAPI.middleware),
+  });
 };
 
 export type RootState = ReturnType<typeof rootReducer>;

@@ -3,13 +3,13 @@ import { Text } from './index';
 import { TextProps } from './text.props';
 
 export default {
-	title: 'Category/Text',
-	component: Text,
-	parameters: {
-		themes: {
-			Text: 'dark',
-		},
-	},
+  title: 'Category/Text',
+  component: Text,
+  parameters: {
+    themes: {
+      Text: 'dark',
+    },
+  },
 } as Meta;
 
 const Template: Story<TextProps> = (args) => <Text {...args} />;

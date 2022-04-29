@@ -8,26 +8,26 @@ import { ITheme } from 'redux/reducer/theme.slice';
 import { useAppDispatch } from 'hook/rtk.hook';
 
 export const Theme = ({ children }: ThemeProps): JSX.Element => {
-	const { nowTheme, allTheme, setTheme } = useTheme();
-	const dispath = useAppDispatch();
+  const { nowTheme, allTheme, setTheme } = useTheme();
+  const dispath = useAppDispatch();
 
-	useEffect(() => {
-		const { prefersDark, savedTheme } = getThemeUser();
+  useEffect(() => {
+    const { prefersDark, savedTheme } = getThemeUser();
 
-		setThemeUser(
-			savedTheme as ITheme,
-			prefersDark,
-			allTheme,
-			setTheme,
-			dispath,
-		);
+    setThemeUser(
+      savedTheme as ITheme,
+      prefersDark,
+      allTheme,
+      setTheme,
+      dispath,
+    );
 
-		// clearPreLoadTheme();
-	}, []);
+    // clearPreLoadTheme();
+  }, []);
 
-	return (
-		<ThemeProvider theme={nowTheme === 'dark' ? darkTheme : lightTheme}>
-			{children}
-		</ThemeProvider>
-	);
+  return (
+    <ThemeProvider theme={nowTheme === 'dark' ? darkTheme : lightTheme}>
+      {children}
+    </ThemeProvider>
+  );
 };

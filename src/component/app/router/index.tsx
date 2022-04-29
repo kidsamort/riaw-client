@@ -5,22 +5,22 @@ import Home from 'page/home';
 import Private from 'page/private';
 
 export function AppRouter() {
-	const auth = false;
+  const auth = false;
 
-	const privateRoutes = [{ path: 'private', element: <Private /> }];
+  const privateRoutes = [{ path: 'private', element: <Private /> }];
 
-	const publicRoutes = [
-		{
-			path: 'auth',
-			element: <Auth />,
-			children: [{ path: ':form', element: <></> }],
-		},
-		{ path: 'error', element: <Error /> },
-		{ path: '/', element: <Home /> },
-		// { path: '*', element: <Navigate to="/error" replace={true} /> },
-	];
+  const publicRoutes = [
+    {
+      path: 'auth',
+      element: <Auth />,
+      children: [{ path: ':form', element: <></> }],
+    },
+    { path: 'error', element: <Error /> },
+    { path: '/', element: <Home /> },
+    // { path: '*', element: <Navigate to="/error" replace={true} /> },
+  ];
 
-	const routes = auth ? { ...publicRoutes, ...privateRoutes } : publicRoutes;
+  const routes = auth ? { ...publicRoutes, ...privateRoutes } : publicRoutes;
 
-	return useRoutes(routes);
+  return useRoutes(routes);
 }

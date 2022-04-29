@@ -8,16 +8,16 @@ import { toggleTheme } from './theme/theme';
 import { useAppDispatch } from 'hook/rtk.hook';
 
 const App: FC = () => {
-	const { nowTheme, setTheme } = useTheme();
-	const dispath = useAppDispatch();
-	return (
-		<ThemeButton
-			nowTheme={nowTheme}
-			onClick={() => toggleTheme(nowTheme, setTheme, dispath)}
-		>
-			<Icon name="moonFill" size={24} />
-		</ThemeButton>
-	);
+  const { nowTheme, setTheme } = useTheme();
+  const dispath = useAppDispatch();
+  return (
+    <ThemeButton
+      nowTheme={nowTheme}
+      onClick={() => toggleTheme(nowTheme, setTheme, dispath)}
+    >
+      <Icon name="moonFill" size={24} />
+    </ThemeButton>
+  );
 };
 
 export default withAppLayout(App);

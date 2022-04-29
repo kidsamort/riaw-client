@@ -3,10 +3,10 @@ import { ComponentPropsWithoutRef, ReactNode } from 'react';
 export enum AuthInputType {}
 
 export interface AuthInputProps {
-	types?: AuthInputType;
-	children?: ReactNode;
+  types?: AuthInputType;
+  children?: ReactNode;
 }
 
 export interface AuthInputComponentProps
-	extends AuthInputProps,
-		ComponentPropsWithoutRef<'div'> {}
+  extends AuthInputProps,
+    ComponentPropsWithoutRef<'div'> {}

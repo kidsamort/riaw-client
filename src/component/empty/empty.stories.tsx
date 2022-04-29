@@ -3,13 +3,13 @@ import { Empty } from './index';
 import { EmptyProps } from './empty.props';
 
 export default {
-	title: 'Category/Empty',
-	component: Empty,
-	parameters: {
-		themes: {
-			Empty: 'dark',
-		},
-	},
+  title: 'Category/Empty',
+  component: Empty,
+  parameters: {
+    themes: {
+      Empty: 'dark',
+    },
+  },
 } as Meta;
 
 const Template: Story<EmptyProps> = (args) => <Empty {...args} />;
