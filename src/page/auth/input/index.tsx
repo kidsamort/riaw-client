@@ -9,26 +9,27 @@ import { signIn, signUp } from './input';
 import { AuthInputComponentProps } from './input.props';
 import styled from './input.styled';
 import { CodeInput } from '../codeInput';
+import { v4 as uuid4 } from 'uuid';
 
 export const AuthInput = ({
   className,
   children,
   ...props
 }: AuthInputComponentProps): JSX.Element => {
-  const [showPass, setShowPass] = useState<boolean>(false);
   const { form } = useParams();
 
-  const { email, name, password } = useAppSelector(
+  const { email, name, password, showPass } = useAppSelector(
     (state) => state.authReducer,
   );
-  const { setEmail, setName, setPassword } = AuthSlice.actions;
+  const { setEmail, setName, setPassword, setShowPass } = AuthSlice.actions;
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
-    setShowPass(false);
+    dispatch(setShowPass(false));
   }, [form]);
 
-  const dispatch = useAppDispatch();
   const clickShowPass = () => {
-    setShowPass(!showPass);
+    dispatch(setShowPass(!showPass));
   };
 
   return (
@@ -38,7 +39,7 @@ export const AuthInput = ({
           signUp.map((input, id) => {
             return (
               <Input
-                key={id}
+                key={id + 3}
                 icon={input.icon}
                 iconRight={
                   input.type === 'password' && showPass

@@ -33,14 +33,14 @@ export const signUp: InputAuth[] = [
     type: 'password',
     name: 'password',
     autoComplete: 'new-password',
-    placeholder: 'Придумайте пароль',
+    placeholder: 'Пароль',
     ariaAutocomplete: 'list',
   },
 ];
 export const signIn: InputAuth[] = [
   {
     icon: 'mail',
-    type: 'name',
+    type: 'email',
     name: 'login',
     autoFocus: true,
     autoComplete: 'email',
