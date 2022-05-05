@@ -41,7 +41,7 @@ export const signIn: InputAuth[] = [
   {
     icon: 'mail',
     type: 'email',
-    name: 'login',
+    name: 'email',
     autoFocus: true,
     autoComplete: 'email',
     placeholder: 'Имя или почта',

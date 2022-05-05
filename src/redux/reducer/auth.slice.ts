@@ -1,45 +1,55 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IUser } from '../../model/IUser';
+import { checkAuth, register } from '../action/auth.action';
 
 interface AuthState {
-  email: string;
-  name: string;
-  password: string;
-  activation: boolean | null;
-  code: number | null;
-  showPass: boolean;
-}
-
-export interface AuthAction {
-  type: string;
-  payload: AuthState;
+  user: IUser | null;
+  isAuth: boolean;
+  isLoading: boolean;
+  error: string;
 }
 
 const initialState: AuthState = {
-  email: '',
-  name: '',
-  password: '',
-  activation: null,
-  code: null,
-  showPass: false,
+  user: null,
+  isAuth: false,
+  isLoading: false,
+  error: '',
 };
 
 export const AuthSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setEmail(state, action: PayloadAction<string>) {
-      state.email = action.payload;
+    setAuth(state, action: PayloadAction<boolean>) {
+      state.isAuth = action.payload;
     },
-    setName(state, action: PayloadAction<string>) {
-      state.name = action.payload;
+    setUser(state, action: PayloadAction<IUser>) {
+      state.user = action.payload;
     },
-    setPassword(state, action: PayloadAction<string>) {
-      state.password = action.payload;
+  },
+  extraReducers: {
+    [checkAuth.fulfilled.type]: (state) => {
+      state.isLoading = false;
+      state.error = '';
+      state.isAuth = true;
     },
-    setShowPass(state, action: PayloadAction<boolean>) {
-      state.showPass = action.payload;
+    [checkAuth.pending.type]: (state) => {
+      state.isLoading = true;
+    },
+    [checkAuth.rejected.type]: (state, action: PayloadAction<string>) => {
+      state.isLoading = false;
+      state.isAuth = false;
+      state.error = action.payload;
+    },
+    [register.rejected.type]: (state, action: PayloadAction<string>) => {
+      state.error = action.payload;
+    },
+    [register.fulfilled.type]: (state) => {
+      state.error = '';
     },
   },
 });
 
-export default AuthSlice.reducer;
+const { reducer, actions } = AuthSlice;
+export const { setAuth, setUser } = actions;
+export default reducer;

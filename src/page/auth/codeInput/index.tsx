@@ -60,6 +60,7 @@ export const CodeInput = ({
               onFocus={getFocusData}
               name={String(id)}
               value={code[id]}
+              autoFocus={id === 0 && true}
               type={'number'}
               pattern="\d*"
             />

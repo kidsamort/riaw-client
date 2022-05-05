@@ -69,8 +69,8 @@ const Auth = (): JSX.Element => {
         <img src="capcha.png" alt="capcha" />
         {form === 'signin' && (
           <Text type={font.style.caption1}>
-            <styled.Span>У вас нет аккаунта? </styled.Span>
-            <Link to="signup"> Зарегистрируйтесь</Link>
+            <styled.Span>У вас нет аккаунта?</styled.Span>
+            <Link to="signup">Зарегистрируйтесь</Link>
           </Text>
         )}
       </styled.Body>

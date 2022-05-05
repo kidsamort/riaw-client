@@ -26,6 +26,7 @@ const Auth = styled.div<{ form: string | undefined }>`
 `;
 
 const Span = styled.span`
+  padding-right: 6px;
   color: ${color.neuteral.b4};
 `;
 
