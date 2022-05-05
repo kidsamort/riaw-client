@@ -23,6 +23,7 @@
 		"build": "env-cmd -f .production.env react-scripts build",
 		"build:dev": "env-cmd -f .development.env react-scripts build",
 		"start": "serve -s build",
+		"start:heroku": "env-cmd -f .production.env react-scripts start",
 		"build-storybook": "build-storybook -s public"
 	},
 	"eslintConfig": {
