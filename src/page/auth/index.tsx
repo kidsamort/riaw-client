@@ -6,25 +6,16 @@ import { Divider } from 'component/UI/divider';
 import { AuthInput } from './input';
 import { Outlet, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { IconDefaultStyled } from 'component/UI/icon/icon.styled';
+import { Header } from './header';
 
 const Auth = (): JSX.Element => {
-  const { form } = useParams();
-  console.log(form);
+  type AuthLinkType = 'signup' | 'signin' | 'activation';
+
+  const { form } = useParams<{ form: AuthLinkType }>();
 
   return (
     <styled.Auth form={form}>
-      <styled.Head>
-        {(form === 'signup' || form === 'activation') && (
-          <>
-            <IconDefaultStyled size={48} />
-            <Text type={font.style.caption1}>
-              <styled.Span>Уже зарегистрированы?</styled.Span>
-              <Link to="signin">Войти</Link>
-            </Text>
-          </>
-        )}
-      </styled.Head>
+      {form !== 'signin' && <Header />}
       <styled.Body>
         <h2>
           {form === 'signup' || form === 'activation' ? 'Регистрация' : 'Вход'}
@@ -69,7 +60,7 @@ const Auth = (): JSX.Element => {
         <img src="capcha.png" alt="capcha" />
         {form === 'signin' && (
           <Text type={font.style.caption1}>
-            <styled.Span>У вас нет аккаунта?</styled.Span>
+            <span>У вас нет аккаунта?</span>
             <Link to="signup">Зарегистрируйтесь</Link>
           </Text>
         )}
