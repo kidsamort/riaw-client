@@ -1,27 +1,14 @@
-import styled, { css } from 'styled-components';
-import { AuthProps } from './auth.props';
-import { DefaultTheme } from 'styled-components';
+import styled from 'styled-components';
 import { color, font } from 'style/helpers.styled';
 import { Button } from 'component/UI/button';
 
 const Auth = styled.div<{ form: string | undefined }>`
-  max-width: 320px;
-  box-sizing: inherit;
+  padding: 24px;
   display: grid;
-  margin: 0 auto;
-  padding: 0 10px;
   grid-template-rows: auto 1fr;
-  align-content: center;
-  justify-content: stretch;
   height: 100vh;
   a {
-    transition: all 0.3s ease-in;
-    text-decoration: none;
     ${font.style.caption1}
-    ${({ theme }) =>
-      css`
-        color: ${theme.text};
-      `}
   }
 `;
 
@@ -51,13 +38,6 @@ const Input = styled.form`
   gap: 12px;
 `;
 
-const Head = styled.div`
-  padding: 24px 0;
-  display: inline-grid;
-  justify-content: space-between;
-  grid-template-columns: auto auto;
-  align-items: center;
-`;
 const Body = styled.div`
   display: grid;
   align-content: center;
@@ -66,7 +46,6 @@ const Body = styled.div`
 export default {
   Auth,
   Span,
-  Head,
   Body,
   Block,
   Input,

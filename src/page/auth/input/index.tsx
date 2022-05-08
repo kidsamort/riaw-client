@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect, useState } from 'react';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import { Button } from 'component/UI/button';
 import { Input } from 'component/UI/input';
@@ -13,9 +13,9 @@ import { login, register } from '../../../redux/action/auth.action';
 export const AuthInput = ({
   className,
   children,
+  url,
   ...props
 }: AuthInputComponentProps): JSX.Element => {
-  const { form } = useParams();
   const [showPass, setShowPass] = useState<boolean>(false);
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
@@ -26,7 +26,7 @@ export const AuthInput = ({
 
   useEffect(() => {
     setShowPass(false);
-  }, [form]);
+  }, [url]);
 
   const clickShowPass = () => {
     setShowPass(!showPass);
@@ -45,7 +45,7 @@ export const AuthInput = ({
     }
   };
   const authClick = () => {
-    switch (form) {
+    switch (url) {
       case 'signup':
         dispatch(register({ email, name, password }));
         error && navigate('/auth/activation', { replace: true });
@@ -65,7 +65,7 @@ export const AuthInput = ({
   return (
     <>
       <styled.Input>
-        {form === 'signup' ? (
+        {url === 'signup' ? (
           signUp.map((input, id) => {
             return (
               <Input
@@ -90,7 +90,7 @@ export const AuthInput = ({
               />
             );
           })
-        ) : form === 'signin' ? (
+        ) : url === 'signin' ? (
           signIn.map((input, id) => {
             return (
               <Input
@@ -114,16 +114,18 @@ export const AuthInput = ({
               />
             );
           })
-        ) : form === 'activation' ? (
+        ) : url === 'activation' ? (
           <CodeInput />
+        ) : url === undefined ? (
+          <Navigate to="/auth/signin" replace={true} />
         ) : (
           <Navigate to="/error" replace={true} />
         )}
       </styled.Input>
       <Button types="primary" size="md" onClick={authClick}>
-        {form === 'signup'
+        {url === 'signup'
           ? 'Зарегистрироваться'
-          : form === 'signin'
+          : url === 'signin'
           ? 'Войти'
           : 'Продолжить'}
       </Button>

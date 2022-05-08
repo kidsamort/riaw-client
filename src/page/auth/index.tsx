@@ -7,20 +7,20 @@ import { AuthInput } from './input';
 import { Outlet, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Header } from './header';
+import { SpanStyled } from './header/header.styled';
+
+export type AuthLinkType = 'signup' | 'signin' | 'activation';
 
 const Auth = (): JSX.Element => {
-  type AuthLinkType = 'signup' | 'signin' | 'activation';
-
-  const { form } = useParams<{ form: AuthLinkType }>();
-
+  const { auth } = useParams<{ auth: AuthLinkType }>();
   return (
-    <styled.Auth form={form}>
-      {form !== 'signin' && <Header />}
+    <styled.Auth form={auth}>
+      <Header url={auth} />
       <styled.Body>
         <h2>
-          {form === 'signup' || form === 'activation' ? 'Регистрация' : 'Вход'}
+          {auth === 'signup' || auth === 'activation' ? 'Регистрация' : 'Вход'}
         </h2>
-        {(form === 'signup' || form === 'signin') && (
+        {(auth === 'signup' || auth === 'signin') && (
           <>
             <styled.Block>
               <Text type={font.style.bodySemibold2}>
@@ -51,16 +51,16 @@ const Auth = (): JSX.Element => {
         )}
         <styled.Block>
           <Text type={font.style.caption1}>
-            {form === 'activation'
+            {auth === 'activation'
               ? 'код подтверждения отпрвлен проверьте почту и введите его ниже'
               : 'или используйте свои данные'}
           </Text>
-          <AuthInput />
+          <AuthInput url={auth} />
         </styled.Block>
         <img src="capcha.png" alt="capcha" />
-        {form === 'signin' && (
+        {auth === 'signin' && (
           <Text type={font.style.caption1}>
-            <span>У вас нет аккаунта?</span>
+            <SpanStyled>У вас нет аккаунта?</SpanStyled>
             <Link to="signup">Зарегистрируйтесь</Link>
           </Text>
         )}

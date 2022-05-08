@@ -1,9 +1,8 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
-
-export enum CodeInputType {}
+import { AuthLinkType } from '../index';
 
 export interface CodeInputProps {
-  types?: CodeInputType;
+  url?: AuthLinkType;
   children?: ReactNode;
 }
 

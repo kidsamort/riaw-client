@@ -8,17 +8,18 @@ import { Link } from 'react-router-dom';
 export const Header = ({
   className,
   children,
+  url,
   ...props
 }: HeaderComponentProps): JSX.Element => {
   return (
     <WrapperStyled className={className} {...props}>
-      <>
-        <IconDefaultStyled size={48} />
+      <IconDefaultStyled size={48} />
+      {url !== 'signin' && (
         <Text type={font.style.caption1}>
           <SpanStyled>Уже зарегистрированы?</SpanStyled>
           <Link to="signin">Войти</Link>
         </Text>
-      </>
+      )}
     </WrapperStyled>
   );
 };

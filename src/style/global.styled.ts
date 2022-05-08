@@ -2,16 +2,13 @@ import { createGlobalStyle, css } from 'styled-components';
 import { DefaultTheme } from 'styled-components';
 import { font } from './helpers.styled';
 
-const linkThemeColor = (theme: DefaultTheme) => css`
-  color: ${theme.text};
-`;
-
 export const GlobalStyles = createGlobalStyle<{ theme: DefaultTheme }>`
 	*{
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
-	}
+
+  }
 
 	body {
     color: ${({ theme }): string => theme.text};
@@ -22,11 +19,15 @@ export const GlobalStyles = createGlobalStyle<{ theme: DefaultTheme }>`
   }
   
   a {
+    transition: all 0.3s ease-in;
     text-decoration: none;
-
-        ${({ theme }) => linkThemeColor(theme)}
+    ${({ theme }) => css`
+      color: ${theme.text};
+    `}
   }
-
+  h1,h2,h3,h4{
+    word-wrap: anywhere;
+  }
 	h1 {
 		${font.style.h1}
 	}

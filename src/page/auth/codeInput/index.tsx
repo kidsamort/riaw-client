@@ -1,7 +1,5 @@
-import { Navigate, useParams } from 'react-router-dom';
 import { ChangeEvent, FocusEvent, KeyboardEvent, useState } from 'react';
 
-import { activation } from './codeInput';
 import { CodeInputComponentProps } from './codeInput.props';
 import { Input, InputCode } from './codeInput.styled';
 
@@ -10,7 +8,6 @@ export const CodeInput = ({
   children,
   ...props
 }: CodeInputComponentProps): JSX.Element => {
-  const { form } = useParams();
   const [code, setCode] = useState(['', '', '', '']);
   const [focus, setFocus] = useState({ value: '', name: '' });
   const [key, setKey] = useState<string>('');
@@ -50,25 +47,21 @@ export const CodeInput = ({
 
   return (
     <Input>
-      {form === 'activation' ? (
-        code.map((item, id) => {
-          return (
-            <InputCode
-              key={id}
-              onChange={handleChange}
-              onKeyDown={backChar}
-              onFocus={getFocusData}
-              name={String(id)}
-              value={code[id]}
-              autoFocus={id === 0 && true}
-              type={'number'}
-              pattern="\d*"
-            />
-          );
-        })
-      ) : (
-        <Navigate to="signin" replace={true} />
-      )}
+      {code.map((item, id) => {
+        return (
+          <InputCode
+            key={id}
+            onChange={handleChange}
+            onKeyDown={backChar}
+            onFocus={getFocusData}
+            name={String(id)}
+            value={code[id]}
+            autoFocus={id === 0 && true}
+            type={'number'}
+            pattern="\d*"
+          />
+        );
+      })}
     </Input>
   );
 };

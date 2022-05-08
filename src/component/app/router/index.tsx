@@ -6,13 +6,13 @@ import Private from 'page/private';
 import { useAppSelector } from '../../../hook/rtk.hook';
 
 export const AppRouter = () => {
-  const { isAuth, isLoading } = useAppSelector((state) => state.authReducer);
+  const { isAuth } = useAppSelector((state) => state.authReducer);
   const publicRoutes = [
     { path: '/', element: <Home /> },
     {
       path: 'auth',
       element: <Auth />,
-      children: [{ path: ':form', element: <></> }],
+      children: [{ path: ':auth', element: <></> }],
     },
     { path: 'error', element: <Error /> },
     {
