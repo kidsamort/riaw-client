@@ -10,12 +10,12 @@ export const GlobalStyles = createGlobalStyle<{ theme: DefaultTheme }>`
 
   }
 
-	body {
+  body {
     color: ${({ theme }): string => theme.text};
-		font-family: Inter, sans-serif;
+    font-family: Inter, sans-serif;
     background: ${({ theme }): string => theme.bg};
-		transition: all 0.3s ease-in;
-		transition: background 0.3s ease-in, color 0.3s ease-in, fill 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    transition: background 0.3s ease-in, color 0.3s ease-in, fill 0.3s ease-in;
   }
   
   a {

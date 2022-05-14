@@ -1,72 +1,52 @@
-import styled from './auth.styled';
+import { AuthWrapperStyled, BlockStyled, BodyStyled } from './auth.styled';
 import { Text } from 'component/text';
-import { color, font } from 'style/helpers.styled';
-import { ButtonWithIcon } from 'component/UI/button/withIcon/buttonWithIcon';
+import { font } from 'style/helpers.styled';
 import { Divider } from 'component/UI/divider';
 import { AuthInput } from './input';
 import { Outlet, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { Header } from './header';
 import { SpanStyled } from './header/header.styled';
+import { Oauth } from './oauth';
 
 export type AuthLinkType = 'signup' | 'signin' | 'activation';
 
 const Auth = (): JSX.Element => {
-  const { auth } = useParams<{ auth: AuthLinkType }>();
+  const { authUrl } = useParams<{ authUrl: AuthLinkType }>();
   return (
-    <styled.Auth form={auth}>
-      <Header url={auth} />
-      <styled.Body>
-        <h2>
-          {auth === 'signup' || auth === 'activation' ? 'Регистрация' : 'Вход'}
-        </h2>
-        {(auth === 'signup' || auth === 'signin') && (
+    <AuthWrapperStyled>
+      <Header url={authUrl} />
+      <BodyStyled center={authUrl === 'activation'}>
+        <h2>{authUrl === 'signin' ? 'Вход' : 'Регистрация'}</h2>
+        {authUrl !== 'activation' && (
           <>
-            <styled.Block>
+            <BlockStyled>
               <Text type={font.style.bodySemibold2}>
                 продолжите через аккаунт
               </Text>
-              <styled.AuthSocial>
-                <ButtonWithIcon
-                  icon="google"
-                  types="secondary"
-                  iconSize={24}
-                  size="md"
-                >
-                  Google
-                </ButtonWithIcon>
-                <ButtonWithIcon
-                  icon="telegram"
-                  iconColor={color.primary.blueHEX}
-                  types="secondary"
-                  iconSize={24}
-                  size="md"
-                >
-                  Telegram
-                </ButtonWithIcon>
-              </styled.AuthSocial>
-            </styled.Block>
+              <Oauth />
+            </BlockStyled>
             <Divider size={2} direction="horizontal" />
           </>
         )}
-        <styled.Block>
+        <BlockStyled>
           <Text type={font.style.caption1}>
-            {auth === 'activation'
+            {authUrl === 'activation'
               ? 'код подтверждения отпрвлен проверьте почту и введите его ниже'
               : 'или используйте свои данные'}
           </Text>
-          <AuthInput url={auth} />
-        </styled.Block>
+          <AuthInput url={authUrl} />
+        </BlockStyled>
         <img src="capcha.png" alt="capcha" />
-        {auth === 'signin' && (
+        {authUrl === 'signin' && (
           <Text type={font.style.caption1}>
             <SpanStyled>У вас нет аккаунта?</SpanStyled>
             <Link to="signup">Зарегистрируйтесь</Link>
           </Text>
         )}
-      </styled.Body>
+      </BodyStyled>
       <Outlet />
-    </styled.Auth>
+    </AuthWrapperStyled>
   );
 };
 

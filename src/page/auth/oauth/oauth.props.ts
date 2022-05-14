@@ -1,12 +1,12 @@
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-export enum EmptyType {}
+export enum OauthType {}
 
-export interface EmptyProps {
-  types?: EmptyType;
+export interface OauthProps {
+  types?: OauthType;
   children?: ReactNode;
 }
 
-export interface EmptyComponentProps
-  extends EmptyProps,
+export interface OauthComponentProps
+  extends OauthProps,
     ComponentPropsWithoutRef<'div'> {}

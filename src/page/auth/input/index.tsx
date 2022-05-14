@@ -48,7 +48,7 @@ export const AuthInput = ({
     switch (url) {
       case 'signup':
         dispatch(register({ email, name, password }));
-        error && navigate('/auth/activation', { replace: true });
+        !error && navigate('/auth/activation', { replace: true });
 
         break;
       case 'signin':

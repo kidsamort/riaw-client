@@ -1,5 +1,5 @@
 import { EmptyComponentProps } from './empty.props';
-import styled from './empty.styled';
+import { EmptyWrapperStyled } from './empty.styled';
 
 export const Empty = ({
   className,
@@ -7,8 +7,8 @@ export const Empty = ({
   ...props
 }: EmptyComponentProps): JSX.Element => {
   return (
-    <styled.Wraper className={className} {...props}>
+    <EmptyWrapperStyled className={className} {...props}>
       {children}
-    </styled.Wraper>
+    </EmptyWrapperStyled>
   );
 };

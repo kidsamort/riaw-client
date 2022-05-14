@@ -1,14 +1,27 @@
-import { EmptyComponentProps } from './empty.props';
-import { EmptyWrapperStyled } from './empty.styled';
+import { OauthComponentProps } from './oauth.props';
+import { OauthWrapperStyled } from './oauth.styled';
+import { ButtonWithIcon } from '../../../component/UI/button/withIcon/buttonWithIcon';
+import { color } from '../../../style/helpers.styled';
 
-export const Empty = ({
+export const Oauth = ({
   className,
   children,
   ...props
-}: EmptyComponentProps): JSX.Element => {
+}: OauthComponentProps): JSX.Element => {
   return (
-    <EmptyWrapperStyled className={className} {...props}>
-      {children}
-    </EmptyWrapperStyled>
+    <OauthWrapperStyled className={className} {...props}>
+      <ButtonWithIcon icon="google" types="secondary" iconSize={24} size="md">
+        Google
+      </ButtonWithIcon>
+      <ButtonWithIcon
+        icon="telegram"
+        iconColor={color.primary.blueHEX}
+        types="secondary"
+        iconSize={24}
+        size="md"
+      >
+        Telegram
+      </ButtonWithIcon>
+    </OauthWrapperStyled>
   );
 };

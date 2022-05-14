@@ -3,8 +3,6 @@ import { EmptyProps } from './empty.props';
 
 const styles = css<EmptyProps>``;
 
-const Wraper = styled.div<EmptyProps>`
+export const EmptyWrapperStyled = styled.div<EmptyProps>`
   ${styles}
 `;
-
-export default { Wraper };

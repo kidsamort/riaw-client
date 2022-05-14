@@ -12,7 +12,7 @@ export const AppRouter = () => {
     {
       path: 'auth',
       element: <Auth />,
-      children: [{ path: ':auth', element: <></> }],
+      children: [{ path: ':authUrl', element: <></> }],
     },
     { path: 'error', element: <Error /> },
     {
